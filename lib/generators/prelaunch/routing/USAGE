@@ -1,0 +1,9 @@
+Description:
+    Mounts this engine to /prelaunch.
+
+Example:
+    rails generate prelaunch:routing
+
+    This will create in config/routes.rb:
+        mount Prelaunch::Engine => "/prelaunch"
+
