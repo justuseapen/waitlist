@@ -4,6 +4,9 @@ require 'spec_helper'
 require File.expand_path("../dummy/config/environment", __FILE__)
 require 'rspec/rails'
 require 'shoulda-matchers'
+require 'ammeter'
+
+require 'ammeter/init'
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 

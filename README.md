@@ -10,13 +10,12 @@ Add this to your `Gemfile`:
 
     gem 'prelaunch' git: 'https://github.com/thegarage/prelaunch.git'
 
-Set up the engine in your `config/routes.rb` file:
+Next, run this generator to install migrations and mount the engine.
 
-    mount Prelaunch::Engine, at: "/prelaunch"
+    rails generate prelaunch:install
 
-Next, install the necessary migrations:
-
-    bin/rake prelaunch:install:migrations
+By the default, generator mounts the engine at `/prelaunch`, but you can
+change it to something else by editing your app's `config/routes.rb`.
 
 ## Usage ##
 
