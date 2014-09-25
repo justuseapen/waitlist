@@ -5,9 +5,8 @@ require File.expand_path("../dummy/config/environment", __FILE__)
 require 'rspec/rails'
 require 'shoulda-matchers'
 require 'ammeter'
-# Ammeter doesn't work if I don't do this.
-require 'ammeter/rspec/generator/example.rb'
-require 'ammeter/rspec/generator/matchers.rb'
+
+require 'ammeter/init'
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
