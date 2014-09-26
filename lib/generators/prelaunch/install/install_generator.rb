@@ -9,7 +9,7 @@ module Prelaunch
     end
 
     def mount_engine
-      route 'mount Prelaunch::Engine => "/prelaunch"'
+      route 'mount Prelaunch::Engine => "/prelaunch", as: "prelaunch"'
     end
   end
 end
