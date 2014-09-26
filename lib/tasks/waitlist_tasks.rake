@@ -1,4 +1,4 @@
 # desc "Explaining what the task does"
-# task :prelaunch do
+# task :waitlist do
 #   # Task goes here
 # end

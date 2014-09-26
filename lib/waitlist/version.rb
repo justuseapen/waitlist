@@ -1,3 +1,3 @@
-module Prelaunch
+module Waitlist
   VERSION = "1.0.1"
 end

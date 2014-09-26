@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe Prelaunch::SubscribersController do
-  routes { Prelaunch::Engine.routes }
+RSpec.describe Waitlist::SubscribersController do
+  routes { Waitlist::Engine.routes }
 
   describe '#new' do
     before do
