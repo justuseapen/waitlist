@@ -22,6 +22,6 @@ RSpec.describe Prelaunch::InstallGenerator, type: :generator do
   end
   describe "the routing entry" do
     subject { file('config/routes.rb') }
-    it { is_expected.to contain(/mount Prelaunch::Engine => "\/prelaunch"/) }
+    it { is_expected.to contain(/mount Prelaunch::Engine => "\/prelaunch", as: "prelaunch"/) }
   end
 end
