@@ -10,7 +10,7 @@ module Prelaunch
     def create
       @subscriber = Subscriber.new(subscriber_params)
       flash[:notice] = 'Thanks for signing up!' if @subscriber.save
-      respond_with @subscriber, location: root_path
+      respond_with @subscriber, location: main_app.root_path
     end
 
     def subscriber_params
