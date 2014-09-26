@@ -9,4 +9,3 @@ module Prelaunch
     end
   end
 end
-

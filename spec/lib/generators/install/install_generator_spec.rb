@@ -6,7 +6,6 @@ RSpec.describe Prelaunch::InstallGenerator, type: :generator do
   destination Rails.root + 'tmp/generated_files'
 
   before do
-    routes = Rails.root + 'config/routes.rb'
     prepare_destination
     config_dir = File.join(destination_root, "config")
     FileUtils.mkdir_p(config_dir)
@@ -23,7 +22,6 @@ RSpec.describe Prelaunch::InstallGenerator, type: :generator do
   end
   describe "the routing entry" do
     subject { file('config/routes.rb') }
-    it { is_expected.to contain /mount Prelaunch::Engine => "\/prelaunch"/ }
+    it { is_expected.to contain(/mount Prelaunch::Engine => "\/prelaunch"/) }
   end
 end
-
