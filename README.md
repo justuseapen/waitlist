@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/thegarage/prelaunch.svg?branch=master)](https://travis-ci.org/thegarage/prelaunch)
+[![Build Status](https://travis-ci.org/thegarage/waitlist.svg?branch=master)](https://travis-ci.org/thegarage/prelaunch)
 
 Prelaunch allows you to accept email addresses from people who wish to be
 notified of your product's launch. We wrote it for use in [The Garage's Rails
