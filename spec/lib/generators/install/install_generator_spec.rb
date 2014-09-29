@@ -1,8 +1,8 @@
 require 'rails_helper'
 # FIXME: Figure out why 'require' doesn't work
-load File.dirname(__FILE__) + '/../../../../lib/generators/prelaunch/install/install_generator.rb'
+load File.dirname(__FILE__) + '/../../../../lib/generators/waitlist/install/install_generator.rb'
 
-RSpec.describe Prelaunch::InstallGenerator, type: :generator do
+RSpec.describe Waitlist::InstallGenerator, type: :generator do
   destination Rails.root + 'tmp/generated_files'
 
   before do
@@ -16,12 +16,12 @@ RSpec.describe Prelaunch::InstallGenerator, type: :generator do
     run_generator
   end
   describe "the migration" do
-    subject { file(Rails.root + 'db/migrate/create_prelaunch_subscribers.prelaunch.rb') }
+    subject { file(Rails.root + 'db/migrate/create_waitlist_subscribers.waitlist.rb') }
 
     it { is_expected.to be_a_migration }
   end
   describe "the routing entry" do
     subject { file('config/routes.rb') }
-    it { is_expected.to contain(/mount Prelaunch::Engine => "\/prelaunch", as: "prelaunch"/) }
+    it { is_expected.to contain(/mount Waitlist::Engine => "\/waitlist", as: "waitlist"/) }
   end
 end

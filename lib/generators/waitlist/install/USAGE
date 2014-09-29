@@ -1,0 +1,13 @@
+Description:
+    Mounts this engine to /waitlist.
+
+Example:
+    rails generate waitlist:install
+
+    This will create in config/routes.rb:
+        mount Waitlist::Engine => "/waitlist"
+
+    It also creates a migration in db/migrate that installs a
+    `waitlist_subscribers` table to collect addresses for your pre-launch
+    waiting list.
+

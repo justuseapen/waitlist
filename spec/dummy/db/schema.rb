@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20140919201517) do
 
-  create_table "prelaunch_subscribers", force: true do |t|
+  create_table "waitlist_subscribers", force: true do |t|
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"

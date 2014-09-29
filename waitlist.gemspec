@@ -1,16 +1,16 @@
 $LOAD_PATH.push File.expand_path("../lib", __FILE__)
 
 # Maintain your gem's version:
-require "prelaunch/version"
+require "waitlist/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "prelaunch"
-  s.version     = Prelaunch::VERSION
+  s.name        = "waitlist"
+  s.version     = Waitlist::VERSION
   s.authors     = ["The Garage"]
   s.homepage    = "https://github.com/thegarage"
-  s.summary     = "Prelaunch signups"
-  s.description = "Prelaunch signups"
+  s.summary     = "Pre-launch email waiting list"
+  s.description = "Pre-launch email waiting list"
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]

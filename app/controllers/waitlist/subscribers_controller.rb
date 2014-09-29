@@ -1,6 +1,6 @@
-require_dependency "prelaunch/application_controller"
+require_dependency "waitlist/application_controller"
 
-module Prelaunch
+module Waitlist
   class SubscribersController < ApplicationController
     respond_to :html, :json
     def new

@@ -1,6 +1,6 @@
-module Prelaunch
+module Waitlist
   class Engine < ::Rails::Engine
-    isolate_namespace Prelaunch
+    isolate_namespace Waitlist
 
     config.generators do |g|
       g.test_framework :rspec
