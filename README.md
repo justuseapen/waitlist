@@ -8,11 +8,15 @@ Template][1].
 
 Add this to your `Gemfile`:
 
-    gem 'waitlist'
+```ruby
+gem 'waitlist'
+```
 
 Next, run this generator to install migrations and mount the engine.
 
-    rails generate waitlist:install
+```bash
+$ rails generate waitlist:install
+```
 
 By the default, generator mounts the engine at `/waitlist`, but you can
 change it to something else by editing your app's `config/routes.rb`.
@@ -21,15 +25,18 @@ change it to something else by editing your app's `config/routes.rb`.
 
 To override the signup view, create `app/views/waitlist/subscribers/new.html.erb` in your app. Here's the bare minimum you need:
 
-    <%= form_for(@subscriber) do |f| %>
-      <%= f.label :email %>
-      <%= f.email_field :email %>
-      <%= f.submit %>
-    <% end %>
+```html
+<%= form_for([waitlist, Waitlist::Subscriber.new]) do |f| %>
+  <%= f.email_field :email %>
+  <%= f.submit %>
+<% end %>
+```
 
 It also works with AJAX:
 
-    $.post('/waitlist/subscribers', { subscriber: { email: 'test@example.com' } });
+```javascript
+$.post('/waitlist/subscribers', { subscriber: { email: 'test@example.com' } });
+```
 
 ## [CONTRIBUTING][2] ##
 
