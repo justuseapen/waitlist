@@ -8,7 +8,7 @@ Template][1].
 
 Add this to your `Gemfile`:
 
-    gem 'waitlist' git: 'https://github.com/thegarage/waitlist.git'
+    gem 'waitlist'
 
 Next, run this generator to install migrations and mount the engine.
 
