@@ -13,13 +13,19 @@ RSpec.describe Waitlist::SubscribersController do
   end
 
   describe '#create' do
-
     context 'with valid address' do
       before do
         post :create, subscriber: { email: 'valid.address@thegarage.us' }
       end
 
       it { should redirect_to '/' }
+    end
+    context 'with valid request and params[:return_to]' do
+      let(:redirect_url) { 'http://google.com' }
+      before do
+        post :create, subscriber: { email: 'valid.address@thegarage.us' }, return_to: redirect_url
+      end
+      it { should redirect_to redirect_url }
     end
 
     context 'as a json ajax request with invalid paramaters' do
