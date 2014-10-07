@@ -13,16 +13,22 @@ RSpec.describe Waitlist::SubscribersController do
   end
 
   describe '#create' do
-
     context 'in response to an html request' do
       context 'with valid address' do
         before do
           post :create, subscriber: { email: 'valid.address@thegarage.us' }
         end
-
         it { should redirect_to '/' }
+        specify { expect(subject.request.flash[:notice]).to eq "Thanks for signing up!" }
       end
 
+      context 'with valid address and params[:return_to]' do
+        let(:redirect_url) { 'http://google.com' }
+        before do
+          post :create, subscriber: { email: 'valid.address@thegarage.us' }, return_to: redirect_url
+        end
+        it { should redirect_to redirect_url }
+      end
       context 'with an invalid address' do
         before do
           post :create, subscriber: { email: "this isn't an email address" }
