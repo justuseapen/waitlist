@@ -9,7 +9,7 @@ module Waitlist
 
     def create
       @subscriber = Subscriber.new(subscriber_params)
-      flash[:notice] = 'Thanks for signing up!' if @subscriber.save
+      flash[:notice] = 'Thanks for signing up!' if @subscriber.save && request.format == 'html'
       return_to = params[:return_to] || main_app.root_path
       respond_with @subscriber, location: return_to
     end

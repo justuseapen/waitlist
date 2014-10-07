@@ -13,36 +13,46 @@ RSpec.describe Waitlist::SubscribersController do
   end
 
   describe '#create' do
-    context 'with valid address' do
-      before do
-        post :create, subscriber: { email: 'valid.address@thegarage.us' }
+    context 'in response to an html request' do
+      context 'with valid address' do
+        before do
+          post :create, subscriber: { email: 'valid.address@thegarage.us' }
+        end
+        it { should redirect_to '/' }
+        specify { expect(subject.request.flash[:notice]).to eq "Thanks for signing up!" }
       end
 
-      it { should redirect_to '/' }
+      context 'with valid address and params[:return_to]' do
+        let(:redirect_url) { 'http://google.com' }
+        before do
+          post :create, subscriber: { email: 'valid.address@thegarage.us' }, return_to: redirect_url
+        end
+        it { should redirect_to redirect_url }
+      end
+      context 'with an invalid address' do
+        before do
+          post :create, subscriber: { email: "this isn't an email address" }
+        end
+
+        it { should render_template :new }
+      end
     end
-    context 'with valid request and params[:return_to]' do
-      let(:redirect_url) { 'http://google.com' }
-      before do
-        post :create, subscriber: { email: 'valid.address@thegarage.us' }, return_to: redirect_url
-      end
-      it { should redirect_to redirect_url }
-    end
 
-    context 'as a json ajax request with invalid paramaters' do
-      before do
-        post :create, format: :json, subscriber: { email: "this isn't an email address" }
+    context 'in reponse to an ajax (json) request' do
+      context 'with valid address' do
+        before do
+          post :create, format: :json, subscriber: { email: "valid.address@thegarage.us" }
+        end
+        specify { expect(subject.request.flash).to be_empty }
       end
 
-      it { should respond_with 422 }
+      context 'with invalid address' do
+        before do
+          post :create, format: :json, subscriber: { email: "this isn't an email address" }
+        end
 
-    end
-
-    context 'with invalid address' do
-      before do
-        post :create, subscriber: { email: "this isn't an email address" }
+        it { should respond_with 422 }
       end
-
-      it { should render_template :new }
     end
   end
 end
