@@ -1,4 +1,5 @@
 require File.expand_path("../dummy/config/environment.rb", __FILE__)
+require 'responders'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
